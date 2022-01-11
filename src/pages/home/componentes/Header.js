@@ -5,6 +5,7 @@ import AppBar from '@material-ui/core/AppBar';
 import Toolbar from '@material-ui/core/Toolbar';
 import SvgIcon from '@material-ui/core/Toolbar';
 import { Bell } from 'react-feather';
+import Avatar from '@material-ui/core/Avatar';
 
 const useStyles = makeStyles({
   appBar:{
@@ -15,6 +16,16 @@ const useStyles = makeStyles({
   },
   grow:{
     flexGrow: 1
+  },
+  userSection:{
+    display: 'flex',
+    alignItems: 'center'
+  },
+  button:{
+    paddingRight: 10
+  }, 
+  bell:{
+    marginRight: 10
   }
 
 })
@@ -28,13 +39,14 @@ function Header() {
         <Toolbar>
           <img src='/images/logo.png' alt="logo" className={classes.img} />
           <div className={classes.grow}></div>
-          <div>
-            <Button variant='contained' color='primary'> 
+          <div className={classes.userSection}>
+            <Button variant='contained' color='primary' className={classes.button}> 
               Novo Post
             </Button>
             <SvgIcon>
               <Bell></Bell>
             </SvgIcon>
+            <Avatar alt="Remy Sharp" src="/" className={classes.bell} />
           </div>
           {/* <div>
             <a href='/'>Conecta Dev</a>
