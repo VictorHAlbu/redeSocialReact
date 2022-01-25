@@ -4,18 +4,44 @@ import PostCard from '../../../componentes/PostCard'
 
 const useStyles = makeStyles((theme) => ({
   root:{
-
   }
 }))
 
 const posts = [
-  {id: 1, description: 'teste 1'},
-  {id: 2, description: 'teste 2'}
-
+  {
+    id: 1,
+    autor:{
+      id: 1,
+      name: 'Lucas Nhini',
+      username: 'lucasninhi',
+      avatar: 'images/avatars/avatar_1.jpeg'
+    },
+    title: 'Criando um app do zero com React',
+    date: 'Janeiro 2022',
+    description: 'Bláblá',
+    hashtags: '#dotenet, #javascript, #react',
+    image: '/images/posts/post9.jpeg'
+  },
+  {
+    id: 2,
+    autor:{
+      id: 2,
+      name: 'Victor Hugo  ',
+      username: 'vh12albuquerque',
+      avatar: 'images/avatars/avatar_2.jpeg'
+    },
+    title: 'Criando um app do zero com Ruby on Rails',
+    date: 'Janeiro 2022',
+    description: 'Usando o framework rails',
+    hashtags: '#rubyonrails, #javascript, #react',
+    image: '/images/posts/post8.jpeg'
+  }
 ] 
 
 
 function Feed() {
+  const classes = useStyles();
+
   return(
     <div>
       {
