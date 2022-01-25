@@ -3,6 +3,9 @@ import { makeStyles } from '@material-ui/styles';
 import Paper from '@material-ui/core/Paper';
 import Button from '@material-ui/core/Button';
 import ListSubheader from '@material-ui/core/ListSubheader';
+import ListItem from '@material-ui/core/ListItem';
+import ListItemText from '@material-ui/core/ListItemText';
+
 
 
 
@@ -36,6 +39,14 @@ function NavBar() {
     <Paper className={classes.root}>
       <Button variant="outlined" color="secondary" className={classes.button}>Registrar Grátis</Button>
       <ListSubheader>{'Tags em Alta'}</ListSubheader>
+      {
+        tags.map((item) => (
+          <ListItem dense button key={`item-${item.id}-${item.name}`}>
+            <ListItemText primary={`#${item.name}`} />
+          </ListItem>
+
+        ))
+      }
     </Paper>
   )
 }
