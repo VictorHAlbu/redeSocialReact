@@ -10,7 +10,7 @@ const useStyles = makeStyles((theme) => ({
 const posts = [
   {
     id: 1,
-    autor:{
+    author:{
       id: 1,
       name: 'Lucas Nhini',
       username: 'lucasninhi',
@@ -24,11 +24,11 @@ const posts = [
   },
   {
     id: 2,
-    autor:{
+    author:{
       id: 2,
       name: 'Victor Hugo  ',
       username: 'vh12albuquerque',
-      avatar: 'images/avatars/avatar_2.jpeg'
+      avatar: 'images/avatars/avatar_1.jpeg'
     },
     title: 'Criando um app do zero com Ruby on Rails',
     date: 'Janeiro 2022',
