@@ -12,7 +12,8 @@ import ListItemText from '@material-ui/core/ListItemText';
 const useStyles = makeStyles({
   root:{
     padding: 16,
-    width: 275
+    width: 275,
+    marginRight: 16
   },
   button:{
     width: "100%"
@@ -47,6 +48,10 @@ function NavBar() {
 
         ))
       }
+
+      <ListItem button>
+        Exibir mais tags
+      </ListItem>
     </Paper>
   )
 }
