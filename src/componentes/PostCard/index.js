@@ -9,6 +9,10 @@ import Avatar from '@material-ui/core/Avatar';
 import { CardActionArea } from '@material-ui/core';
 import FavoriteIcon from '@material-ui/icons/Favorite';
 import IconButton from '@material-ui/core/IconButton';
+import { BsFillChatLeftDotsFill } from "react-icons/bs";
+import { BsFillBookmarkFill } from "react-icons/bs";
+
+
 
 const useStyles = makeStyles({
   root:{
@@ -33,6 +37,9 @@ const useStyles = makeStyles({
   }, 
   content:{
     padding: 0
+  },
+  favorite:{
+    marginLeft: 'auto'
   }
 })
 
@@ -86,6 +93,21 @@ function PostCard({ post }) {
             </Typography>
 
           </IconButton> 
+
+          <IconButton aria-label="comment">
+            <BsFillChatLeftDotsFill/>
+            <Typography
+              className={classes.reactions}
+              color="textSecondary"
+              variant="body2"
+            >
+              {'30'}
+            </Typography>
+
+          </IconButton> 
+          <IconButton aria-label="favorite" className={classes.favorite}>
+            <BsFillBookmarkFill/>
+          </IconButton>
       </CardActions>
     </Card>
   )
