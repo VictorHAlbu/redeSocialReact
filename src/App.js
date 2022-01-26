@@ -1,13 +1,21 @@
 import React from 'react';
-import Home from './pages/home'
+import Home from './pages/home';
 import { ThemeProvider } from '@material-ui/core/styles';
-import theme from './theme'
+import theme from './theme';
+import SignIn from './pages/SignIn';
+import { BrowserRouter, Route, Routes } from 'react-router-dom'
 
 
 function App() {
   return (
+    // themeProvider: customização da página com materi-ui
     <ThemeProvider theme={theme}> 
-      <Home/>
+      <BrowserRouter>
+          <Routes>
+            <Route path="/" element={<Home/>}/>
+            <Route path="/sign-in" element={<SignIn/>}/>
+          </Routes>
+      </BrowserRouter>
     </ThemeProvider>
   )  
 }
