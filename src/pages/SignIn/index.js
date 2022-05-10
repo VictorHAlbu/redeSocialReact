@@ -8,7 +8,8 @@ import { AiFillLock } from "react-icons/ai";
 import TextField from '@material-ui/core/TextField';
 import Button from '@material-ui/core/Button';
 import Link from '@material-ui/core/Link';
-
+import { useNavigate } from 'react-router-dom'
+import axios from '../../utils/axios'
 
 
 const useStyles = makeStyles({
@@ -39,31 +40,6 @@ const useStyles = makeStyles({
     display: 'block'
   }
 
-
-  // left:{
-    // background: 'blue',
-    // flexGrow: 0,
-    // flexBasis: '58%',
-    // // flexGrow e FlexBasis -  divide a página com % para cada div
-    // display: 'flex',
-    // flexDirection: 'column',
-    // justifyContent: 'center',
-    // alignItems: 'center'
-  
-  // },
-
-  // right:{
-    // background: 'yellow',
-    // flexBasis: '42%'
-  // },
-
-  // form:{
-    // display: 'flex',
-    // flexDirection: 'column',
-    // margin: '64px 32px',
-    // alignItems: 'center'
-  // }
-
 })
 
 
@@ -81,6 +57,13 @@ function Copyright() {
 
 function SignIn() {
   const classes = useStyles();
+  const navigate = useNavigate();
+
+  async function handleSignIn() {
+
+    const response = await axios.post('api/home/login', { email: 'vh12victor@gmail.com', password: 'admin'});
+    console.log(response)
+  }
 
   return (
 
@@ -139,7 +122,8 @@ function SignIn() {
               <Button fullWidth
               variant="contained"
               color="primary"
-              className={classes.button}>
+              className={classes.button}
+              onClick={handleSignIn} >
                 Entrar
               </Button>
               <Grid container>
@@ -156,31 +140,6 @@ function SignIn() {
       </Grid>
     </Grid>
 
-
-    // flex container
-  //  <div className={classes.root}>
-
-  //       {/* Flex item container */}
-  //       <div className={classes.left}>
-          // <Typography style={{color: '#fff', fontSize: '35', lineHeight: '45px'}}>
-          //   <strong>Simplificando a forma de conectar desenvolvedores de softwares!</strong>
-          // </Typography>
-          // <Typography variant="body2" style={{color: 'rgb(255,255,255, 0.7)', marginTop: '30', fontSize: 15, lineHeight: '30px'}}>
-          //   Compartilhe seu conhecimento com toda nossa rede de desenvolvimento de Software
-          // </Typography>
-  //       </div>
-
-  //     <div className={classes.right}>
-  //         <form className={classes.form}>
-  //             <h4>Acesso</h4>
-  //             <input type="text"/>
-  //             <input type="text"/>
-  //         </form>
-          
-  //     </div>
-
-
-  //  </div>
   )
 }
 
