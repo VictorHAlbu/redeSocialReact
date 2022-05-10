@@ -5,6 +5,10 @@ import Grid from '@material-ui/core/Grid';
 import Box from '@material-ui/core/Box';
 import Avatar from '@material-ui/core/Avatar';
 import { AiFillLock } from "react-icons/ai";
+import TextField from '@material-ui/core/TextField';
+import Button from '@material-ui/core/Button';
+import Link from '@material-ui/core/Link';
+
 
 
 const useStyles = makeStyles({
@@ -17,10 +21,24 @@ const useStyles = makeStyles({
   image:{
     backgroundImage: 'url(/images/background.jpg)',
     backgroundPosition: 'center',
-    backgroundSize: 'center',
+    backgroundSize: 'cover',
     backgroundRepeat: 'none'
 
+  }, 
+  avatar:{
+    background: 'blue',
+    marginBottom: '12px'
+  },
+  button:{
+    marginTop: '10px'
+  },
+  form:{
+    margin: '10px, 15px'
+  },
+  copyright:{
+    display: 'block'
   }
+
 
   // left:{
     // background: 'blue',
@@ -48,6 +66,19 @@ const useStyles = makeStyles({
 
 })
 
+
+function Copyright() {
+  return(
+    <Typography variant="body2" aling="center">
+      {'Copyright '}
+      <a color="inherit" href="https://github.com/VictorHAlbu">
+        Victor Hugo
+      </a>{' '}
+      {new Date().getFullYear()}
+    </Typography>
+  )
+}
+
 function SignIn() {
   const classes = useStyles();
 
@@ -74,12 +105,55 @@ function SignIn() {
 
       <Grid item md={5}>
           <Box display='flex' flexDirection='column' alignItems='center'm={8} >
-            <Avatar>
+            <Avatar className={classes.avatar}>
               <AiFillLock/>
             </Avatar>
+            <Typography variant="h5">
+              Acesso: 
+            </Typography>
+            <form className={classes.form}>
+              <TextField
+                variant="outlined"
+                // outlined = contorno no textfield
+                margin="normal"
+                required
+                fullWidth
+                id="email"
+                label="E-emal"
+                name="email"
+                autoComplete="email"
+                autoFocus
+              />
+                
+              <TextField
+                variant="outlined"
+                margin="normal"
+                required
+                fullWidth
+                name="password"
+                label="senha"
+                type="password"
+                id="password"
+                autoComplete="current-password"
+              />
+              <Button fullWidth
+              variant="contained"
+              color="primary"
+              className={classes.button}>
+                Entrar
+              </Button>
+              <Grid container>
+                <Grid item>
+                  <Link>Esqueceu sua senha?</Link>
+                </Grid>
+                <Grid item>
+                  <Link>  Não tem uma conta? Registre-se</Link>                  
+                </Grid>
+              </Grid>
+            </form>
+            <Copyright className={classes.copyright}/>
           </Box>
       </Grid>
-
     </Grid>
 
 
