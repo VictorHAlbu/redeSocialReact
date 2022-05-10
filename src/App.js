@@ -1,10 +1,12 @@
 import React from 'react';
-import Home from './pages/home';
 import { ThemeProvider } from '@material-ui/core/styles';
 import theme from './theme';
+
+import Home from './pages/home';
 import SignIn from './pages/SignIn';
 import { BrowserRouter, Route, Routes } from 'react-router-dom'
 
+import './mock'
 
 function App() {
   return (
