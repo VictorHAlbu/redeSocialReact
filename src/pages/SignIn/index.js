@@ -1,4 +1,4 @@
-import React from 'react';
+import React, {useState} from 'react';
 import { makeStyles } from '@material-ui/styles';
 import Typography from '@material-ui/core/Typography';
 import Grid from '@material-ui/core/Grid';
@@ -10,6 +10,7 @@ import Button from '@material-ui/core/Button';
 import Link from '@material-ui/core/Link';
 import { useNavigate } from 'react-router-dom'
 import axios from '../../utils/axios'
+import authService from '../../services/authService'
 
 
 const useStyles = makeStyles({
@@ -58,11 +59,18 @@ function Copyright() {
 function SignIn() {
   const classes = useStyles();
   const navigate = useNavigate();
+  const [email, setEmail] = useState('');
+  const [password, setPassword] = useState('');
 
   async function handleSignIn() {
 
-    const response = await axios.post('api/home/login', { email: 'vh12victor@gmail.com', password: 'admin'});
-    console.log(response)
+    try {
+      await authService.signIn('vh12victor@gmail.com', 'admin');
+
+    } catch (error){
+      console.log(error.response)
+    }
+    navigate('/');
   }
 
   return (
@@ -106,6 +114,8 @@ function SignIn() {
                 name="email"
                 autoComplete="email"
                 autoFocus
+                value={email}
+                onChange={(event) => setEmail(event.target.value)}
               />
                 
               <TextField
@@ -118,6 +128,8 @@ function SignIn() {
                 type="password"
                 id="password"
                 autoComplete="current-password"
+                value={password}
+                onChange={(event) => setPassword(event.target.value)}
               />
               <Button fullWidth
               variant="contained"
